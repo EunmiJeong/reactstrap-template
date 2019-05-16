@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+$blue:    #19c1bf !default;  // primary
+$indigo:  #6610f2 !default;
+$purple:  #6f42c1 !default;
+$pink:    #e83e8c !default;
+$red:     #dc3545 !default;  // danger
+$orange:  #fd7e14 !default;
+$yellow:  #ffc107 !default;  // warning
+$green:   #28a745 !default;  // success
+$teal:    #20c997 !default;
+$cyan:    #17a2b8 !default;  // info
+// $teal: #009688;
+// $brown: #795548;
+// $secondary:     $gray-600 !default;
+
+$font-size-base:              0.94rem;
+$font-size-sm:                14px;
+$font-size-xs:                12px;
+
+$font-family-sans-serif:      -apple-system, "Segoe UI", "Noto Sans CJK KR Regular", Roboto, Arial, "Noto Sans", sans-serif, "Noto Color Emoji" !default;
+
+$body-bg: #edf2f6;
+
+@import "./bootstrap/scss/bootstrap";
+
+
+html,body { height: 100% }
+body      { margin: 0; padding: 0;
+            font-family: "SpoqaHanSans", sans-serif; font-size: 15px; color: #232323;
+            letter-spacing: -0.7px; line-height: 1.45; word-break: break-all;
+          }
+          
+#root           { position: relative; min-height: 100vh}
+#page_wrap      { margin-left: 0; min-height: 100vh}
+#nav            { position: fixed; margin-left: -220px; width: 230px; height: 100%; 
+                  background: #354052; color: $gray-500;
+                  transition: .2s ease all;
+                }
+#user           { height: 180px; text-align: center; border-bottom: 2px solid #303b4d;}
+#top_nav        { height: 65px; background-color: #fff; border-bottom: 1px solid $gray-200;}
+#title          { height: 112px; background-color: #fff; border-bottom: 1px solid $gray-300;}
+#main           { display: flex;}
+#content        { flex: 1 0 auto; }
+#timeline       { background: $gray-300; overflow-y: auto}
+#footer         { padding-top: 8px; padding-bottom: 8px; border-top: 1px solid $gray-200; background: $white}
+
+@media screen and (min-width: 768px) {
+    #page_wrap  { margin-left: 230px}
+    #nav        { position: fixed; margin-left: 0; width: 230px; background: #354052; }
+    #main       { min-height: calc( 100vh - 177px)}
+}
+
+
+.font-size-sm { font-size: $font-size-sm; }
+.font-size-xs { font-size: $font-size-xs; }
+
+.card {background: white;}
+.content { padding: 40px}
+.clearfix:after,
+.clearfix:before {content: "";display: table;clear: both;}
+.timeline { width: 300px; }
+
+
+.position-rel {position: relative;}
+.padding-l-xs.padding-l-xs {padding-left: 8px;}
+.padding-r-xs.padding-r-xs {padding-right: 8px;}
+.margin-l-xs.margin-l-xs {margin-left: 8px;}
+.margin-r-xs.margin-r-xs {margin-right: 8px;}
+.margin-t-xs.margin-t-xs {margin-top: 8px;}
+.margin-b-xs.margin-b-xs {margin-bottom: 8px;}
+
+.bb-none {border-bottom: none !important;
+}
+@media screen and (min-width: 768px) {
+    .p-mt-0 {margin-top: 0 !important;}
+}
+
+
+#top_nav ul { display: flex; height: 100%}
+#top_nav li { flex: 0 1 auto;}
+#top_nav li:first-child { margin-right: auto}
+#top_nav li a { display: block; text-align: center}
+#top_nav li a:hover { color: $gray-600}
+.burger { padding-top: 24px; width: 67px; height: 100%; border-right: 1px solid $gray-200}
+.burger > span { display: block; margin-left: auto; margin-right: auto; width: 20px; height: 3px; background-color: $gray-600; border-radius: 3px}
+.burger > span + span { margin-top: 3px }
+.alarm,
+.logout { width: 68px; height: 100%; font-size: 20px; line-height: 62px; color: $gray-500; border-left: 1px solid $gray-200}
+
+
+.avatar { display: inline-block; margin-bottom: 5px; width: 75px; height: 74px; background-color: $gray-300; border-radius: 100%}
+.name   { font-size: $font-size-sm; color: $gray-200; letter-spacing: 0}
+#user .avatar { margin-top: 44px}
+
+
+
+@keyframes pulse {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.beep { position: relative; }
+.beep:after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    right: -4px;
+    width: 7px;
+    height: 7px;
+    background-color: $pink;
+    border-radius: 50%;
+    -webkit-animation: pulse 1s ease-out infinite;
+    animation: pulse 1s ease-out infinite;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
