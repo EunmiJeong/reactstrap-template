@@ -1,1 +1,5 @@
 # reactstrap-template
+
+
+- reactstrap
+- Fontawesome
