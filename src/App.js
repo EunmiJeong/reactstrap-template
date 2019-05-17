@@ -2,52 +2,11 @@ import React, { Component } from "react"; //가장 기본적인 컴포넌트
 import $ from "jquery";
 import logo from "./logo.svg";
 import "./App.css";
-import { Row, Col, Button } from "reactstrap";
+import { Row, Col, Button, Card, CardHeader, CardBody } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPowerOff, faBell } from "@fortawesome/free-solid-svg-icons";
 
 class App extends Component {
-    componentDidMount() {
-        // Jquery here $(...)...
-        $(window)
-            .resize(function() {
-                var document_height = $(document).height();
-                var window_height = $(window).height();
-                var window_width = $(document).innerWidth();
-                if (window_width > 767) {
-                    var header_height =
-                        $("#top-nav").outerHeight() + $("#title").outerHeight();
-                    if (document_height > window_height) {
-                        // 컨텐츠가 길 경우
-                        console.log("document^^");
-                        var timeline_height =
-                            $(document).innerHeight() -
-                            $("#top-nav").outerHeight() -
-                            $("#title").outerHeight();
-                    } else {
-                        // 컨텐츠가 짧을 경우
-
-                        var timeline_height =
-                            $(document).innerHeight() - header_height;
-                        $("#timeline").css(
-                            "maxHeight",
-                            $(window).height() - header_height
-                        );
-                        // $("#nav").css("height", window_height);
-                    }
-
-                    console.log(document_height);
-                    console.log($("#top-nav").outerHeight());
-
-                    // $("#timeline").css("height", timeline_height);
-                }
-
-                if (window_width > 767 && document_height > window_height) {
-                }
-            })
-            .resize();
-    }
-
     //재사용 가능한 것
     render() {
         const name = "react";
@@ -147,11 +106,23 @@ class App extends Component {
                             </li>
                         </ul>
                     </header>
-                    <div id="title">dd</div>
+                    <div id="title">
+                        <h2>고객관리</h2>
+                    </div>
                     <div id="main" className="clearfix">
                         <div id="content">
                             <Row>
-                                <Col>Col</Col>
+                                <Col sm={{ size: 8 }}>
+                                    <div className="card_header">카드헤더</div>
+                                    <Card>
+                                        <CardHeader>카드헤더</CardHeader>
+                                        <CardBody>
+                                            내용텍스트 With supporting text
+                                            below as a natural lead-in to
+                                            additional content.
+                                        </CardBody>
+                                    </Card>
+                                </Col>
                             </Row>
                             <div style={{ height: 590 }}>
                                 hello {name}
@@ -164,8 +135,54 @@ class App extends Component {
                                 <p className="h6">h6</p>
                             </div>
                         </div>
-                        <div id="timeline" className="timeline">
-                            <div style={{ height: 200 }}>타임라인 자리</div>
+                        <div id="timeline">
+                            <span className="h4 mb-3 d-block">Timeline</span>
+                            <div className="timeline">
+                                <div className="timeline-block content-pink">
+                                    <div className="timeline-icon" />
+                                    <div className="timeline-content">
+                                        <div className="category">
+                                            <div>서비스 명칭</div>
+                                        </div>
+                                        <div className="desc">
+                                            설명설명 나갑니다.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="timeline-block content-green">
+                                    <div className="timeline-icon" />
+                                    <div className="timeline-content">
+                                        <div className="category">
+                                            <div>서비스 명칭</div>
+                                        </div>
+                                        <div className="desc">
+                                            설명설명 나갑니다.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="timeline-block content-blue">
+                                    <div className="timeline-icon" />
+                                    <div className="timeline-content">
+                                        <div className="category">
+                                            <div>서비스 명칭</div>
+                                        </div>
+                                        <div className="desc">
+                                            설명설명 나갑니다.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="timeline-block content-yellow">
+                                    <div className="timeline-icon" />
+                                    <div className="timeline-content">
+                                        <div className="category">
+                                            <div>서비스 명칭</div>
+                                        </div>
+                                        <div className="desc">
+                                            설명설명 나갑니다.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
